@@ -1,6 +1,6 @@
     $(document).ready(function(){
-        $('#etsy-search').bind('submit', function() {
-            api_key = "40h8asnvpavz5niql697w27h";
+    $('#etsy-search').bind('submit', function() {
+            api_key = "your_api_key";
             terms = $('#etsy-terms').val();
             etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+
                 terms+"&limit=12&includes=Images:1&api_key="+api_key;

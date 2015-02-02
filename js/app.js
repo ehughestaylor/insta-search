@@ -1,11 +1,13 @@
- $(document).ready(function(){
+    $(document).ready(function(){
         $('#etsy-search').bind('submit', function() {
             api_key = "40h8asnvpavz5niql697w27h";
             terms = $('#etsy-terms').val();
             etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+
                 terms+"&limit=12&includes=Images:1&api_key="+api_key;
+
             $('#etsy-images').empty();
             $('<p></p>').text('Searching for '+terms).appendTo('#etsy-images');
+
             $.ajax({
                 url: etsyURL,
                 dataType: 'jsonp',
@@ -32,4 +34,4 @@
             });
             return false;
         })
-});
+    });

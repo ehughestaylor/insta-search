@@ -3,7 +3,7 @@
             api_key = "40h8asnvpavz5niql697w27h";
             terms = $('#etsy-terms').val();
             etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+
-                terms+"&limit=12&includes=Images,Shop:1&api_key="+api_key;
+                terms+"&limit=12&includes=Images:Shop:1&api_key="+api_key;
 
             $('#etsy-images').empty();
             $('<p></p>').text('Searching for '+terms).appendTo('#etsy-images');

@@ -1,0 +1,19 @@
+.instagram-pic{
+	text-align: center;
+	padding-top: 1.2em;
+	background-color: lightgrey;
+}
+.instagram-img{
+	border-radius: 2em;
+	padding: 1em;
+	background-color: white;
+	opacity: 0.76;
+}
+.instagram-img:hover{
+	opacity: 1.0;
+}
+.likes {
+	display: block;
+	border-top: 2px solid black;
+	padding-top: 1em;
+}

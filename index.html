@@ -9,26 +9,10 @@
 			width: 300px;
 		}
 	</style>
+	<link rel="stylesheet" href="style.css">
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMZQoMfx442XV9z-KJm9dHe_RARjPZKz0">
-    </script>
-    <script>
-	var map;
-	function initialize() {
-	var address = prompt('What is the Address you are looking for?')	
-	getCoordinates(address, function(coords){
-		var mapOptions = {
-	    zoom: 14,
-	    center: new google.maps.LatLng(coords[0], coords[1]),
-	    MapTypeId:google.maps.MapTypeId.ROADMAP,
-	  };
-	  map = new google.maps.Map(document.getElementById('map-canvas'),
-	      mapOptions);
-	})
-
-	}
-	google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 	<script src="js/app.js"></script>
 </head>
@@ -40,7 +24,7 @@
 		<input type="submit" name="submit" value="submit">
 	</form>
 
-	<div class="results"></div>
+	<div id="instagram"></div>
 	
 </body>
 </html>

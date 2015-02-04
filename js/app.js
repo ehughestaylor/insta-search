@@ -1,38 +1,30 @@
-    $(document).ready(function(){
-    $('#etsy-search').bind('submit', function() {
-            api_key = "your_api_key";
-            terms = $('#etsy-terms').val();
-            etsyURL = "https://openapi.etsy.com/v2/listings/active.js?keywords="+
-                terms+"&limit=12&includes=Images:1&api_key="+api_key;
+geocoder = new google.maps.Geocoder();
+address = "19125";
 
-            $('#etsy-images').empty();
-            $('<p></p>').text('Searching for '+terms).appendTo('#etsy-images');
+function getCoordinates(address, callback ){
+  var coordinates;
+  geocoder.geocode({address:address}, function(results, status){
+    coords_obj = results[0].geometry.location;
+    coordinates = [coords_obj.k, coords_obj.D];
+    callback(coordinates);
+  })
+}
+// IG AUTHORIZATION CODE 
+// 98f282b3767e4cbeaa3f92d357eebbf0
 
-            $.ajax({
-                url: etsyURL,
-                dataType: 'jsonp',
-                success: function(data) {
-                    if (data.ok) {
-                        $('#etsy-images').empty();
-                        if (data.count > 0) {
-                            $.each(data.results, function(i,item) {
-                                $("<img/>").attr("src", item.Images[0].url_75x75).appendTo("#etsy-images").wrap(
-                                    "<a href='" + item.url + "'></a>"
-                                );
-                                if (i%4 == 3) {
-                                    $('<br/>').appendTo('#etsy-images');
-                                }
-                            });
-                        } else {
-                            $('<p>No results.</p>').appendTo('#etsy-images');
-                        }
-                    } else {
-                        $('#etsy-images').empty();
-                        alert(data.error);
-                    }
-                }
-            });
+$(document).ready(function(){
+    console.log("page ready");
+  $.ajax({
+    type:"GET",
+    dataType:"jsonp",
+    cache:false,
+    url:"https://api.instagram.com/v1/media/popular?client_id=3a5105a86e9646508f189e1c20cd1e3b",
+    success: function(photo) {
+      for (var i=0; i<15; i++) {
+        console.log(photo.data[i]);
+        // $("#target").append("<a href='" + photo.data[i].link +"'><img src='" + photo.data[i].images.low_resolution.url +"' /></a>");
+      }
+    }
+  });
 
-            return false;
-        })
-    });
+});

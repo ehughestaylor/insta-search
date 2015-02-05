@@ -117,6 +117,9 @@ body{
 	transition-duration:0.4s;
 	width: 80%;
 }
+#text-field:active{
+
+}
 #sub_button{
 	border-radius: 2em;
 	font-size: 1.4em;
@@ -135,7 +138,6 @@ body{
 	letter-spacing: 0;
 	color: white;
 }
-
 
 
 /******************************
@@ -163,3 +165,25 @@ PIC STYLES
 .likes {
 	display: none;
 }
+
+
+
+/******************************
+MEDIA QUERIES
+*******************************/
+@media(max-width:480px){
+	.target{
+		width: 80%;
+	}
+	.instagram-img{
+		width: 80%;
+	}
+	.target h3 {
+		width: 78%;
+	}
+}
+
+
+
+
+

@@ -117,9 +117,6 @@ body{
 	transition-duration:0.4s;
 	width: 80%;
 }
-#text-field:active{
-
-}
 #sub_button{
 	border-radius: 2em;
 	font-size: 1.4em;
@@ -180,6 +177,10 @@ MEDIA QUERIES
 	}
 	.target h3 {
 		width: 78%;
+	}
+	#sub_button{
+		background-color:#e74c3c;
+		color: white;
 	}
 }
 

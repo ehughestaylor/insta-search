@@ -31,15 +31,15 @@ function getCoordinates(address, callback ){
 // });
 
 function initialize() {
-  var address = prompt('What is the Address you are looking for?')  
+  // var address = prompt('What is the Address you are looking for?');  
   getCoordinates(address, function(coords){
     var mapOptions = {
       zoom: 13,
       center: new google.maps.LatLng(coords[0], coords[1]),
       MapTypeId:google.maps.MapTypeId.ROADMAP,
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-        mapOptions);
+    // map = new google.maps.Map(document.getElementById('map-canvas'),
+    //     mapOptions);
     lat = mapOptions.center.k;
     lng = mapOptions.center.D;
 
@@ -49,9 +49,10 @@ function initialize() {
       type:"GET",
       dataType:"jsonp",
       cache:false,
+      MAX_TIMESTAMP:1420070400,
       url:"https://api.instagram.com/v1/media/search?lat="+lat+"&lng="+lng+"&client_id=78e45908b3534571b3f1c3f7b459f993",
       success: function(photo){
-        for (var i= 0; i <10; i++){
+        for (var i= 0; i <20; i++){
           console.log(photo.data[i]);
           $("#instagram").append("<div class='instagram-pic' id='pic-"+ photo.data[i].id +"' ><a target='_blank' href='" + photo.data[i].link +"'><span class='likes'>"+photo.data[i].likes.count +"</span><img class='instagram-img' src='" + photo.data[i].images.low_resolution.url +"' /></a></div>");
           }
@@ -64,8 +65,12 @@ function initialize() {
 
 
 $(document).ready(function(){
-  initialize();
-
+  $('.target').submit(function(event){
+    //zero out results 
+    $('#instagram').html('');
+    address = $(this).find("input[name='place']").val();
+    initialize();
+  })
 
 });
 

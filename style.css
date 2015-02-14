@@ -113,6 +113,7 @@ body{
 @media only screen and (max-width: 720px){
 	.target {
 		width: 80%;
+		height: 1000px;
 	}
 	.text h1 {
 		margin: 0 auto;

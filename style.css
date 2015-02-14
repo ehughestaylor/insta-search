@@ -79,33 +79,51 @@ body{
 .target {
 	background-color: #2980b9;
 	width: 60%;
-	min-height: 80%;
-	margin: 3em auto 0;
+	margin: 3em auto 3em;
 	padding: 1em;
 	border-radius: 2em;
 	text-align: center;
 }
-.target h1 {
+
+.text {
+	max-width: 100%;
+}
+.text h1 {
 	font-family: 'Dosis', sans-serif;
 	color:#F4F2DE;
 	text-shadow: 4px 3px 7px black;
-	font-size:4.0em;
+	font-size:5.5em;
 	margin: 0.5em;
 }
-.target h3 {
+.text h3 {
 	font-family: 'Dosis', sans-serif;
 	color: #02253E;
 	width: 70%;
 	margin: 0 auto;
-	font-size: 1.9em;
+	font-size: 3.4em;
 }
-.target input {
+.text input {
 	display: block;
 	margin: 1em auto;
 	font-size: 2.0em;
 	font-family: 'PT Sans', sans-serif;
 	text-align: center;
 }
+
+@media only screen and (max-width: 720px){
+	.target {
+		width: 80%;
+	}
+	.text h1 {
+		margin: 0 auto;
+	}
+	.text h3 {
+		padding-top: 0.5em;
+		width: 88%;
+	}
+}
+
+
 #text_field{
 	width: 60%;
 	border-radius: 0.2em;

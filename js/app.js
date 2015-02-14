@@ -10,25 +10,6 @@ function getCoordinates(address, callback ){
     callback(coordinates);
   })
 }
-// IG AUTHORIZATION CODE 
-// 98f282b3767e4cbeaa3f92d357eebbf0
-
-// $(document).ready(function(){
-//   console.log(lat);
-//     console.log("page ready");
-//   $.ajax({
-//     type:"GET",
-//     dataType:"jsonp",
-//     cache:false,
-//     url:"https://api.instagram.com/v1/media/popular?client_id=3a5105a86e9646508f189e1c20cd1e3b",
-        https://api.instagram.com/v1/media/search?lat=48.858844&lng=2.294351&client_id=3a5105a86e9646508f189e1c20cd1e3b
-//     success: function(photo) {
-//       for (var i=0; i<15; i++) {
-//         console.log(photo.data[i]);
-//       }
-//     }
-//   });
-// });
 
 function initialize() {
   // var address = prompt('What is the Address you are looking for?');  
@@ -62,9 +43,16 @@ function initialize() {
   }
 
   // google.maps.event.addDomListener(window, 'load', initialize);
-
+function animate(){
+  $('#sub_button').on('mouseenter',function(){
+    $("#sub_button").addClass("animated rubberBand").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+      $(this).removeClass("animated rubberBand");
+    });
+  })
+}
 
 $(document).ready(function(){
+  animate();
   $('.target').submit(function(event){
     //zero out results 
     $('#instagram').html('');

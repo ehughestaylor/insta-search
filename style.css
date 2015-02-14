@@ -79,6 +79,7 @@ body{
 .target {
 	background-color: #2980b9;
 	width: 60%;
+	min-height: 80%;
 	margin: 3em auto 0;
 	padding: 1em;
 	border-radius: 2em;
